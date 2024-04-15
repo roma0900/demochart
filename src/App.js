@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import dots from './инклинометрия';
+import LinePlotXY from "./components/LinePlotXY";
+import LinePlotXZ from "./components/LinePlotXZ";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h3>Проекция графика XY</h3>
+        <LinePlotXY data={dots.data}/>
+      </div>
+      <div>
+        <h3>Проекция графика XZ</h3>
+        <LinePlotXZ data={dots.data}/>
+      </div>
     </div>
   );
 }
