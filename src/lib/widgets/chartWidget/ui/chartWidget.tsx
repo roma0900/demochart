@@ -6,7 +6,7 @@ import { getChartOptionsByType } from '../lib/getChartOptionsByType';
 import ChartTypeViewSelector from '../../../features/chartTypeSelector/ui/chartViewSelector';
 
 import { useEvent, useStore, useUnit } from 'effector-react';
-import { $chartType, changeChartViewType } from '../model';
+import { $chartType, changeChartViewType, getModel } from '../model';
 
 import './chartWidget.css';
 
@@ -30,6 +30,7 @@ export const ChartWidget: FC<ChartWidgetProps> = ({
       XY: {},
       XZ: {},
     })
+    const {options$} = getModel();
    useEffect(() => {
       chartType === ChartType.chart3d 
       ?
@@ -47,7 +48,7 @@ export const ChartWidget: FC<ChartWidgetProps> = ({
       }, [chartType, dots]);
     return(
       <>
-        <ChartTypeViewSelector onChange={chartTypeChange}/>
+        <ChartTypeViewSelector  onChange={(type) => chartTypeChange(type)}/>
         {chartType === ChartType.chart3d ? (
           <Chart option={options?.threeD} />
         ) : (

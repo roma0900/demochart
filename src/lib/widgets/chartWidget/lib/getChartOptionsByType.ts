@@ -42,7 +42,7 @@ export const getChartOptionsByType = (type:ChartType, data:number[][]) =>{
               type: 'value',
             },
             yAxis: {
-              type: 'value'
+              type: 'value',
             },
             dataZoom: [
               {
