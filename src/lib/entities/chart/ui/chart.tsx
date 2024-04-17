@@ -32,7 +32,7 @@ export default function Chart({
       chart?.dispose();
       window.removeEventListener("resize", resizeChart);
     };
-  }, [theme]);
+  }, [theme, option]);
 
   useEffect(() => {
     // Update chart

@@ -1,8 +1,6 @@
-import { EChartsOption } from "echarts";
-import { ChartType } from "../enums/chartType";
-import { ChartDataType, ChartDotsCollectionType } from "../types";
+import { ChartType } from '../../../entities/chart';
 
-export const getChartOptionsByType = (type:ChartType, dots:ChartDotsCollectionType) =>{
+export const getChartOptionsByType = (type:ChartType, data:number[][]) =>{
     switch (type) {
         case ChartType.chart3d:
             return {
@@ -19,7 +17,7 @@ export const getChartOptionsByType = (type:ChartType, dots:ChartDotsCollectionTy
                 },
                 grid3D: {
                   viewControl: {
-                    projection: 'orthogonal'
+                    projection: 'perspective'
                   },
                   axisPointer: {
                     show: false
@@ -28,7 +26,7 @@ export const getChartOptionsByType = (type:ChartType, dots:ChartDotsCollectionTy
                 series: [
                   {
                     type: 'line3D',
-                    data: dots.data.map((item:ChartDataType)=> [item.x, item.y, item.z]),
+                    data: data,
                     symbolSize: 2.5,
                     lineStyle: {
                       width: 2,
@@ -37,35 +35,43 @@ export const getChartOptionsByType = (type:ChartType, dots:ChartDotsCollectionTy
                   }
                 ]
               };
-        case ChartType.chart2dXY:  
+        case ChartType.chart2d:  
         return {
+            tooltip: {},
             xAxis: {
               type: 'value',
             },
             yAxis: {
               type: 'value'
             },
+            dataZoom: [
+              {
+                type: 'inside',
+                start: 0,
+                end: 100,
+                orient: "vertical",
+              },
+              {
+                start: 0,
+                end: 100,
+              },
+              {
+                start: 0,
+                end: 100,
+                orient: "vertical",
+              },
+              {
+                type: 'inside',
+                start: 0,
+                end: 100,
+              },
+            ],
             series: [
               {
-                data: dots.data.map((item:ChartDataType)=> [item.x, item.y]),
+                data: data,
                 type: 'line'
               }
             ]
           }  
-        case ChartType.chart2dXZ:  
-        return {
-            xAxis: {
-            type: 'value',
-            },
-            yAxis: {
-            type: 'value'
-            },
-            series: [
-            {
-                data: dots.data.map((item:ChartDataType)=> [item.x, item.z]),
-                type: 'line'
-            }
-            ]
-        } 
     }
 }

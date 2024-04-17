@@ -12,9 +12,20 @@ const option1 = {
   yAxis: {
     type: 'value'
   },
+  dataZoom: [
+    {
+      type: 'inside',
+      start: 0,
+      end: 10
+    },
+    {
+      start: 0,
+      end: 10
+    }
+  ],
   series: [
     {
-      data: dots.data.map(item=> [item.x, item.z]),
+      data: dots.data.map(item=> [item.x, item.y]),
       type: 'line'
     }
   ]
@@ -57,8 +68,8 @@ function App() {
   return (
     <div className="App">
       <div className='echart'>
-       {/* @ts-ignore
-        <ReactECharts option={option}  /> */}
+       {/* @ts-ignore*/}
+        {/* <ReactECharts option={option1}  />  */}
         <ChartWidget dots={dots} />
       </div>
     </div>
