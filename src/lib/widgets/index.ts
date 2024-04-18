@@ -1,1 +1,1 @@
-export * as ChartWidget from './chartWidget/index';
+export * as ChartWidget from './chart/index';

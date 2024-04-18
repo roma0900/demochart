@@ -19,7 +19,6 @@ export default function Chart({
     if (chartRef.current !== null) {
       chart = init(chartRef.current, theme);
     }
-
     // Add chart resize listener
     // ResizeObserver is leading to a bit janky UX
     function resizeChart() {
@@ -51,5 +50,5 @@ export default function Chart({
     }
   }, [loading, theme]);
 
-  return <div ref={chartRef} style={{ width: "100%", height: "100%", ...style }} />;
+  return <div ref={chartRef} style={{ width: "100%", height: "100%", minWidth:"100%", minHeight:"100%", ...style }} />;
 }

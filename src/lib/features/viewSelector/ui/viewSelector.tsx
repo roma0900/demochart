@@ -1,11 +1,11 @@
 import { FC, useCallback, useState } from 'react';
 import { ChartType } from '../../../entities/chart';
 
-export type ChartTypeViewSelectorProps = {
+export type ViewSelectorProps = {
     onChange: (arg0: ChartType) => void;
 }
 
-export const ChartTypeViewSelector: FC<ChartTypeViewSelectorProps> = ({onChange})=>{
+export const ViewSelector: FC<ViewSelectorProps> = ({onChange})=>{
     const [is3Dchart, setIs3Dchart] = useState(false)
     const onChangeChartType = useCallback(()=>{
         onChange(is3Dchart? ChartType.chart2d : ChartType.chart3d)
@@ -19,4 +19,4 @@ export const ChartTypeViewSelector: FC<ChartTypeViewSelectorProps> = ({onChange}
     )
 }
 
-export default ChartTypeViewSelector
+export default ViewSelector

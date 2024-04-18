@@ -2,7 +2,7 @@ import dots from './инклинометрия';
 import ReactECharts from "./components/ReactECharts";
 import './App.css';
 import { useEffect } from 'react';
-import { ChartWidget } from './lib/widgets/chartWidget/ui/chartWidget';
+import { ChartWidget } from './lib/widgets/chart/ui/chart';
 ;
 
 const option1 = {
@@ -70,7 +70,7 @@ function App() {
       <div className='echart'>
        {/* @ts-ignore*/}
         {/* <ReactECharts option={option1}  />  */}
-        <ChartWidget dots={dots} />
+        <ChartWidget dots={dots} style={{width:'1600px', height: '800px'}}/>
       </div>
     </div>
   );

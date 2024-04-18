@@ -2,6 +2,8 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  width: 1600px;
+  height: 800px;
 }
 
 .App-logo {
@@ -40,6 +42,7 @@
 }
 
 .echart{
-  width: 800px;
-  height: 800px;
+  display: flex;
+  /* width: 800px;
+  height: 800px; */
 }

@@ -1,4 +1,4 @@
-import { ChartType } from '../../../entities/chart';
+import { ChartType } from '..';
 
 export const getChartOptionsByType = (type:ChartType, data:number[][]) =>{
     switch (type) {
