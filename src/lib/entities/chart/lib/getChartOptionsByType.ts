@@ -66,12 +66,21 @@ export const getChartOptionsByType = (type:ChartType, data:number[][]) =>{
                 end: 100,
               },
             ],
+            toolbox: {
+              feature: {
+                  saveAsImage : {
+                    show: true,
+                    title: 'Скачать',
+                    excludeComponents: ['toolbox', 'dataZoom']
+                  }
+              }
+            },
             series: [
               {
                 data: data,
                 type: 'line'
               }
-            ]
+            ],
           }  
     }
 }
