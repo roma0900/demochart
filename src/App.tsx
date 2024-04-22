@@ -67,11 +67,10 @@ const option = {
 function App() {
   return (
     <div className="App">
-      <div className='echart'>
        {/* @ts-ignore*/}
         {/* <ReactECharts option={option1}  />  */}
-        <ChartWidget dots={dots} style={{width:'1600px', height: '800px'}}/>
-      </div>
+        {/* <ChartWidget dots={dots} style={{width:'1600px', height: '800px'}}/> */}
+        <ChartWidget dots={dots} />
     </div>
   );
 }

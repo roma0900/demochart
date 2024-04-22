@@ -14,7 +14,7 @@ export const ViewSelector: FC<ViewSelectorProps> = ({onChange})=>{
 
     return (
         <>
-            <button onClick={onChangeChartType}>{is3Dchart? '2D':'3D'}</button>
+            <button style={{    margin: 'auto'}}onClick={onChangeChartType}>{is3Dchart? '2D':'3D'}</button>
         </>
     )
 }

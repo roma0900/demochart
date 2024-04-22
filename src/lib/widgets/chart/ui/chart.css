@@ -1,12 +1,21 @@
+.chartWidgetCon{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  
+}
+
 .chartsContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  height: 100%;
+  
 }
 
 .chartContainer {
     display: flex;
     flex-direction: column;
-    min-width: 800px;
-    height: 800px;
+    flex: 1 1 auto;
+    width: 100%;
   }

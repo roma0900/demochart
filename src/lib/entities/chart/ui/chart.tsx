@@ -4,6 +4,12 @@ import type { ECharts } from "echarts";
 import 'echarts-gl';
 import { ReactEChartsProps } from "./types";
 
+function setCanvasSize(canvas:any) {
+  var rect = canvas.parentNode.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+}
+
 export default function Chart({
   option,
   style,
@@ -17,11 +23,14 @@ export default function Chart({
     // Initialize chart
     let chart: ECharts | undefined;
     if (chartRef.current !== null) {
+      setCanvasSize(chartRef.current)
       chart = init(chartRef.current, theme);
     }
     // Add chart resize listener
     // ResizeObserver is leading to a bit janky UX
     function resizeChart() {
+      // setCanvasSize(chartRef.current)
+
       chart?.resize();
     }
     window.addEventListener("resize", resizeChart);
@@ -45,10 +54,11 @@ export default function Chart({
     // Update chart
     if (chartRef.current !== null) {
       const chart = getInstanceByDom(chartRef.current);
+      
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       loading === true ? chart.showLoading() : chart.hideLoading();
     }
   }, [loading, theme]);
 
-  return <div ref={chartRef} style={{ width: "100%", height: "100%", minWidth:"100%", minHeight:"100%", ...style }} />;
+  return <div ref={chartRef} style={{ minWidth:"100%", minHeight:"100%", ...style }} />;
 }

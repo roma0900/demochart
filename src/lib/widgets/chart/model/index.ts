@@ -9,9 +9,12 @@ export type ChartWidgetOptionsProps = {
   };
 
 export const getModel = () => {
-    const options$ = createStore({});
+    const options$ = createStore<ChartWidgetOptionsProps>({threeD: {},
+        XY: {},
+        XZ: {}})
     const updateOptions = createEvent<{type:ChartType, dots:ChartDotsCollectionType}>()
     const chartType$ = createStore<ChartType>(ChartType.chart2d)
+    
 
     const changedChartViewType = createEvent<ChartType>()
 
@@ -23,9 +26,12 @@ export const getModel = () => {
     const updateOptionsHandler = ({type, dots}:{type:ChartType, dots:ChartDotsCollectionType})=>{
         return type===ChartType.chart3d
           ? 
-              getChartOptionsByType(type, dots.data.map((item)=> [item.x, item.y, item.z]))
-          :
-              getChartOptionsByType(type, dots.data.map((item)=> [item.x, item.z]))
+              {...options$.getState(), threeD: getChartOptionsByType(type, dots.data.map((item)=> [item.x, item.y, item.z]))}
+          : {
+                ...options$.getState(),
+                XY: getChartOptionsByType(type, dots.data.map((item)=> [item.x, item.y])),
+                XZ: getChartOptionsByType(type, dots.data.map((item)=> [item.x, item.z])),
+          }
     }
 
     // sample({

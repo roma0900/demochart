@@ -29,23 +29,23 @@ export const ChartWidget: FC<ChartWidgetProps> = ({
     
 
     useEffect(() => {
-      updateOptions({type:chartType,dots})
+      updateOptions({type:chartType, dots})
     }, [chartType, dots, updateOptions]);
 
     return(
-      <div style={{...style}}>
+      <div className='chartWidgetCon' style={{...style}}>
         <ViewSelector onChange={(type) => chartTypeChange(type)}/>
         {chartType === ChartType.chart3d ? (
-          <Chart option={options} />
+          <Chart option={options?.threeD} />
         ) : (
           <div className='chartsContainer'>
             <div className='chartContainer'> 
               <div>Проекция XY</div>
-              <Chart option={options} />
+              <Chart option={options?.XY} />
             </div>
             <div className='chartContainer'> 
               <div>Проекция XZ</div>
-              <Chart option={options} />
+              <Chart option={options?.XZ} />
             </div>
           </div>
         )}
