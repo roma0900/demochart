@@ -21,10 +21,10 @@ export const ChartWidget: FC<ChartWidgetProps> = ({
     dots,
     style
 }) => {
-    const {options$, chartType$, changedChartViewType, updateOptions} = useMemo(getModel, []);
+    const {$options, $chartType, changedChartViewType, updateOptions} = useMemo(getModel, []);
 
-    const chartType = useStore(chartType$);
-    const options = useStore(options$);
+    const chartType = useStore($chartType);
+    const options = useStore($options);
     const chartTypeChange = useEvent(changedChartViewType);
     
 
