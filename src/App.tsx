@@ -8,7 +8,7 @@ import GanttChart from './lib/entities/ganttChart/ui/ganttChart';
 
 export const ganttData =
   [
-    {category: 'Task1', startDate: 1331323200000, endDate: 1331923200000},
+    {category: 'Task1', startDate: '2012/03/01', endDate: '2012/03/03'},
     {
       category: 'Task 2',
       startDate: '2012/03/02',

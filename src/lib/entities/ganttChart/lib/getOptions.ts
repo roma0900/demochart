@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as echarts from 'echarts';
 import dayjs from 'dayjs';
 

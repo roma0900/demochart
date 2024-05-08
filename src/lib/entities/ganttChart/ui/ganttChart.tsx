@@ -9,7 +9,7 @@ export interface Props {
   loading?: boolean;
 }
 
-function setCanvasSize(canvas) {
+function setCanvasSize(canvas:any) {
   const rect = canvas.parentNode.getBoundingClientRect();
   canvas.width = rect.width;
   canvas.height = rect.height;
