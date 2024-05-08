@@ -10,6 +10,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "dayjs": "^1.11.11",
     "echarts": "^5.5.0",
     "echarts-gl": "^2.0.9",
     "effector": "^23.2.0",

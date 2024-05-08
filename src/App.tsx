@@ -3,66 +3,33 @@ import ReactECharts from "./components/ReactECharts";
 import './App.css';
 import { useEffect } from 'react';
 import { ChartWidget } from './lib/widgets/chart/ui/chart';
+import GanttChart from './lib/entities/ganttChart/ui/ganttChart';
 ;
 
-const option1 = {
-  xAxis: {
-    type: 'value',
-  },
-  yAxis: {
-    type: 'value'
-  },
-  dataZoom: [
+export const ganttData =
+  [
+    {category: 'Task1', startDate: 1331323200000, endDate: 1331923200000},
     {
-      type: 'inside',
-      start: 0,
-      end: 10
+      category: 'Task 2',
+      startDate: '2012/03/02',
+      endDate: '2012/03/05',
     },
     {
-      start: 0,
-      end: 10
-    }
-  ],
-  series: [
-    {
-      data: dots.data.map(item=> [item.x, item.y]),
-      type: 'line'
-    }
-  ]
-};
-
-const option = {
-  tooltip: {},
-  backgroundColor: '#fff',
-  xAxis3D: {
-    type: 'value'
-  },
-  yAxis3D: {
-    type: 'value'
-  },
-  zAxis3D: {
-    type: 'value'
-  },
-  grid3D: {
-    viewControl: {
-      projection: 'orthogonal'
+      category: 'Task 3',
+      startDate: '2012/03/04',
+      endDate: '2012/03/07',
     },
-    axisPointer: {
-      show: false
-    }
-  },
-  series: [
     {
-      type: 'line3D',
-      data: dots.data.map(item=> [item.x, item.y, item.z]),
-      symbolSize: 2.5,
-      lineStyle: {
-        width: 2,
-        color: 'black'
-      }
-    }
+      category: 'Task 4',
+      startDate: '2012/03/06',
+      endDate: '2012/03/08',
+    },
+    {
+      category: 'Task 5',
+      startDate: '2012/03/05',
+      endDate: '2012/03/10',
+    },
   ]
-};
 
 function App() {
   return (
@@ -70,7 +37,7 @@ function App() {
        {/* @ts-ignore*/}
         {/* <ReactECharts option={option1}  />  */}
         {/* <ChartWidget dots={dots} style={{width:'1600px', height: '800px'}}/> */}
-        <ChartWidget dots={dots} />
+        <GanttChart data={ganttData} />
     </div>
   );
 }
